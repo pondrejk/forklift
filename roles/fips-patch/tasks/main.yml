@@ -1,0 +1,9 @@
+---
+- name: copy the script with fips-related patches
+  copy:
+    src: "{{ role_path }}/files/fips_workaround.sh"
+    dest: "{{ working_dir }}/fips_workaround.sh"
+    mode: 0777
+
+- name: run the script
+  command: "sh {{ working_dir }}/fips_workaround.sh"
